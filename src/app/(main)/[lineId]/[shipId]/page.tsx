@@ -1,5 +1,7 @@
 import { getShip } from '@/lib/hierarchy/data';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowLeft, Calendar, Users } from 'lucide-react';
 
 interface ShipPageProps {
     params: Promise<{ lineId: string; shipId: string }>;
@@ -14,30 +16,54 @@ export default async function ShipPage({ params }: ShipPageProps) {
     }
 
     return (
-        <div className="flex flex-col h-full bg-[#313338] text-gray-100">
-            {/* Header / Topbar */}
-            <div className="h-12 border-b border-[#26272D] flex items-center px-4 shadow-sm">
-                <div className="font-bold text-lg"># {ship.name}</div>
-                <div className="border-l border-gray-600 mx-4 h-6"></div>
-                <div className="text-gray-400 text-sm">Select a sailing week to join the chat</div>
+        <div className="flex flex-col space-y-8 pt-6 pb-20">
+            {/* Header */}
+            <div className="space-y-2">
+                <div className="flex items-center gap-2 text-sm text-gray-500 font-medium mb-4">
+                    <Link href="/" className="hover:text-orange-500">Home</Link>
+                    <span>/</span>
+                    <Link href={`/${lineId}`} className="hover:text-orange-500 capitalize">{ship.lineId.replace('-', ' ')}</Link>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <Link href={`/${lineId}`} className="p-2 rounded-full hover:bg-black/5 transition-colors">
+                        <ArrowLeft size={24} className="text-gray-600" />
+                    </Link>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+                        {ship.name}
+                    </h1>
+                </div>
+                <p className="text-lg text-gray-600 max-w-2xl pl-14">
+                    Choose your sailing date to meet your future shipmates.
+                </p>
             </div>
 
-            {/* Content: Sailing Weeks List */}
-            <div className="flex-1 overflow-y-auto p-6">
-                <h2 className="text-2xl font-bold mb-6">Upcoming Sailings</h2>
+            {/* Sailing Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+                {ship.sailingWeeks.map((week) => (
+                    <div key={week.id} className="glass-card p-6 flex items-center justify-between group cursor-pointer">
+                        <div className="flex items-center gap-6">
+                            <div className="flex flex-col items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl text-orange-700 shadow-inner">
+                                <span className="text-xs font-bold uppercase">{new Date(week.startDate).toLocaleString('default', { month: 'short' })}</span>
+                                <span className="text-2xl font-bold">{new Date(week.startDate).getDate()}</span>
+                            </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {ship.sailingWeeks.map((week) => (
-                        <div
-                            key={week.id}
-                            className="bg-[#2B2D31] p-4 rounded-md hover:bg-[#35373C] cursor-pointer transition-colors border border-transparent hover:border-gray-600"
-                        >
-                            <h3 className="font-bold text-lg text-indigo-400">{week.startDate}</h3>
-                            <p className="text-gray-400">{week.name || 'Regular Sailing'}</p>
-                            <div className="mt-4 text-xs text-gray-500 font-mono">ID: {week.id}</div>
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">
+                                    {week.name || 'Caribbean Adventure'}
+                                </h3>
+                                <div className="flex items-center gap-4 mt-1 text-sm text-gray-500">
+                                    <span className="flex items-center gap-1"><Calendar size={14} /> 7 Nights</span>
+                                    <span className="flex items-center gap-1"><Users size={14} /> 2.4k Members</span>
+                                </div>
+                            </div>
                         </div>
-                    ))}
-                </div>
+
+                        <button className="px-6 py-2 rounded-full border-2 border-orange-500 text-orange-600 font-bold text-sm group-hover:bg-orange-500 group-hover:text-white transition-all">
+                            Join
+                        </button>
+                    </div>
+                ))}
             </div>
         </div>
     );

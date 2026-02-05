@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ServerRail } from '@/components/navigation/ServerRail';
+import { Navbar } from '@/components/navigation/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,12 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex h-screen bg-[#313338] text-gray-100 overflow-hidden">
-          {/* The Server Rail (Leftmost Sidebar) */}
-          <ServerRail />
-
-          {/* Main Content Area */}
-          <main className="flex-1 flex overflow-hidden">
+        <div className="min-h-screen flex flex-col pt-24 pb-12 px-4 md:px-8">
+          <Navbar />
+          <main className="flex-1 w-full max-w-7xl mx-auto">
             {children}
           </main>
         </div>
