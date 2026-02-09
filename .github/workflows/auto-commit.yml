@@ -1,0 +1,47 @@
+name: Auto Commit Daily
+
+on:
+  schedule:
+    # Runs daily at 11 PM EST (4 AM UTC)
+    - cron: '0 4 * * *'
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for proper git operations
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+      
+      - name: Check for changes and commit
+        run: |
+          # Check if there are any changes to commit
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "✅ Changes detected. Committing..."
+            
+            # Add all changes
+            git add .
+            
+            # Commit with timestamp
+            COMMIT_MSG="Auto-commit: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            git commit -m "$COMMIT_MSG"
+            
+            # Push changes
+            git push
+            
+            echo "✅ Successfully committed and pushed changes"
+          else
+            echo "ℹ️ No changes to commit"
+          fi
+      
+      - name: Log completion
+        if: always()
+        run: echo "Auto-commit workflow completed at $(date -u)"
