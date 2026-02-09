@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CruiseFrnds Social Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f49bd",
+                        "background-light": "#fdfbf7", // Warm Sand Cream
+                        "background-dark": "#101622",
+                        "editorial": "#F0EFE9",
+                        "accent-silver": "#D1D5DB"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .dark .glass-nav {
+            background-color: rgba(16, 22, 34, 0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<!-- iOS Status Bar Spacer -->
+<div class="h-11 w-full bg-background-light dark:bg-background-dark sticky top-0 z-50"></div>
+<main class="max-w-md mx-auto min-h-screen pb-24">
+<!-- Header -->
+<header class="px-6 py-4 flex justify-between items-center sticky top-11 z-40 glass-nav">
+<h1 class="text-xl font-bold tracking-tight text-primary">CruiseFrnds</h1>
+<div class="flex gap-4">
+<button class="p-2 rounded-full bg-editorial dark:bg-slate-800">
+<span class="material-icons text-primary">notifications</span>
+</button>
+<button class="p-2 rounded-full bg-editorial dark:bg-slate-800">
+<span class="material-icons text-primary">search</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative px-6 pt-2 pb-8">
+<div class="relative h-[420px] rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Elegant group of people laughing on a luxury cruise ship deck" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr2lh5KXPEmTBd9iRfnupZmMPWPd7-m_T84OnN9hXnkq5K_iO6JcKMdmgxzWKrBBp5LhEJvqOoLCLJTsQWWefFVar5Oj5jgzos-RIw0oB7YO8YZ-L0weNJhpy4VOYR5TQACU2X0UMuFKqHFT4iJHEiYv0mEBC245S3WSGOt1KvUQlKCA3O6bG85EUNtdD0brldwRR5maKcWdL4XiU4X5m_aEnX7dxxhpu3Zm6DD4oxY7bMoA2ZVBiBo3C2-4n5kLxKyBOFiY2fHnc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<h2 class="font-serif text-5xl text-white italic leading-tight mb-2">Your Crew Awaits</h2>
+<p class="text-white/90 text-sm font-light max-w-[200px]">Connect with fellow voyagers across the seven seas.</p>
+</div>
+</div>
+</section>
+<!-- Active Communities Section -->
+<section class="py-6">
+<div class="px-6 flex justify-between items-end mb-4">
+<h3 class="text-2xl font-serif font-bold italic">Active Communities</h3>
+<a class="text-xs font-semibold text-primary uppercase tracking-widest" href="#">See All</a>
+</div>
+<div class="flex overflow-x-auto gap-4 px-6 no-scrollbar">
+<!-- Solo Travelers Card -->
+<div class="min-w-[200px] bg-editorial dark:bg-slate-800 p-6 rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center mb-4 shadow-sm">
+<span class="material-icons text-primary scale-125">person_outline</span>
+</div>
+<h4 class="font-bold text-lg mb-1">Solo Travelers</h4>
+<span class="text-xs text-slate-500 dark:text-slate-400 mb-6">1.2k Members</span>
+<button class="bg-primary text-white px-8 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">Join</button>
+</div>
+<!-- Foodies Card -->
+<div class="min-w-[200px] bg-editorial dark:bg-slate-800 p-6 rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center mb-4 shadow-sm">
+<span class="material-icons text-primary scale-125">restaurant</span>
+</div>
+<h4 class="font-bold text-lg mb-1">Foodies</h4>
+<span class="text-xs text-slate-500 dark:text-slate-400 mb-6">840 Members</span>
+<button class="bg-primary text-white px-8 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">Join</button>
+</div>
+<!-- Adventure Seekers Card -->
+<div class="min-w-[200px] bg-editorial dark:bg-slate-800 p-6 rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center mb-4 shadow-sm">
+<span class="material-icons text-primary scale-125">explore</span>
+</div>
+<h4 class="font-bold text-lg mb-1">Adventures</h4>
+<span class="text-xs text-slate-500 dark:text-slate-400 mb-6">2.1k Members</span>
+<button class="bg-primary text-white px-8 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity">Join</button>
+</div>
+</div>
+</section>
+<!-- Upcoming Events Section -->
+<section class="px-6 py-6">
+<h3 class="text-2xl font-serif font-bold italic mb-6">Upcoming Events</h3>
+<div class="space-y-4">
+<!-- Event 1 -->
+<div class="group border border-accent-silver dark:border-slate-700 p-5 rounded-xl bg-white dark:bg-slate-800 flex items-center gap-4">
+<div class="flex flex-col items-center justify-center w-14 h-14 bg-primary/10 rounded-full border border-primary/20">
+<span class="text-[10px] font-bold text-primary uppercase">Aug</span>
+<span class="text-lg font-bold text-primary -mt-1">12</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-base">Sunset Mixer</h4>
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">6:00 PM</span>
+</div>
+<p class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-icons text-[14px]">location_on</span>
+                            Observation Deck A
+                        </p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="group border border-accent-silver dark:border-slate-700 p-5 rounded-xl bg-white dark:bg-slate-800 flex items-center gap-4">
+<div class="flex flex-col items-center justify-center w-14 h-14 bg-primary/10 rounded-full border border-primary/20">
+<span class="text-[10px] font-bold text-primary uppercase">Aug</span>
+<span class="text-lg font-bold text-primary -mt-1">13</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-base">Shore Excursion Meet</h4>
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">9:30 AM</span>
+</div>
+<p class="text-xs text-slate-500 flex items-center gap-1">
+<span class="material-icons text-[14px]">location_on</span>
+                            Main Atrium Lobby
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Member Spotlight Section -->
+<section class="py-6">
+<div class="px-6 mb-6">
+<h3 class="text-2xl font-serif font-bold italic">Member Spotlight</h3>
+</div>
+<div class="flex overflow-x-auto gap-6 px-6 no-scrollbar pb-4">
+<!-- Spotlight 1 -->
+<div class="min-w-[140px] text-center">
+<div class="relative inline-block mb-3 p-1 rounded-full border-2 border-primary/30">
+<img class="w-24 h-24 rounded-full object-cover" data-alt="Professional portrait of a friendly man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE-sdx48hDApcwe-jU4yD-kWdBwJXaetM5p7o82zBYVbURwp-397EtBRngowlU5EVsXYK1_m2ubLKwkvEES_tNr5yEuMlWvjtAuoiMdaF0DR1c1pNS_vVoJt5XDfyIgi243XEgm4CjkBXvjEWPIchAVXk7M2cPaczewdYo61pHfodgDI6pFToPDSDRZFnQ_5atDGhb6KKihujlQnWpo_frouZARi3CLn9x4z3GlZEVfBtrzJsnHo1hHFza4igbdwTvpLeMhzBlVFE"/>
+</div>
+<h5 class="font-bold text-sm">Marcus V.</h5>
+<p class="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Luxury travel enthusiast and jazz lover.</p>
+</div>
+<!-- Spotlight 2 -->
+<div class="min-w-[140px] text-center">
+<div class="relative inline-block mb-3 p-1 rounded-full border-2 border-primary/30">
+<img class="w-24 h-24 rounded-full object-cover" data-alt="Portrait of a woman with a warm smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2-XGDecZARnoA652qC9AEyYNtmKLdKn7C9rAR6t-06QcPagw9_GC_LRZq0x8QnC-3sIfd4BM-y9ap6lgpt93BnSLD4Yxx1GQ4zXZ1Iov9O8X5yH245Cizg05T88sPvNjmyirN2Pg9dId5CmLhzI-WKBQx2dYw5Xt6yiRonNJ0s2aJkI2YHsXewka5IuacPwBEdLj0P8NcOqQqQYI-SKQ70bXxZb6Y8tBjAwsj4dtr4c0YOuO6ceFAI_mn2RUIA6gaQf-K1PWMfS8"/>
+</div>
+<h5 class="font-bold text-sm">Elena R.</h5>
+<p class="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Exploring the world, one port at a time.</p>
+</div>
+<!-- Spotlight 3 -->
+<div class="min-w-[140px] text-center">
+<div class="relative inline-block mb-3 p-1 rounded-full border-2 border-primary/30">
+<img class="w-24 h-24 rounded-full object-cover" data-alt="Portrait of a traveler with sunglasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZsnx_bLhtJrsQAmLNFrisPu4zhfADyTPsSrap-4GeNPkHMg3KXi5EFL_n2Far3tihTguR-KG6RN4zjLhmtIyPDyJ8U8uGfbYqXoHhDpu09OSpqeybPS5MF_RbUbPDIzzu17CNPapL1nunWta0rICVs4bU4EhDBZwaSXi4iov7UyvgxJgawVgHt1uDxelkHjAtEfsnSSo_x2C1fSK67Fs4S2BfM-JzlbFIH2Hh8QUKx7DDqW7DgoiL2W7wxqKuMU2wF_ogduQ2-Nk"/>
+</div>
+<h5 class="font-bold text-sm">David S.</h5>
+<p class="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">Photographer and adventure seeker.</p>
+</div>
+</div>
+</section>
+<!-- iOS Style Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto h-20 bg-white/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-accent-silver/30 px-8 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">directions_boat</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Voyage</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">groups</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Social</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<div class="p-2 -mt-10 bg-primary rounded-full shadow-lg shadow-primary/40 border-4 border-background-light dark:border-background-dark">
+<span class="material-icons text-white">add</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest -mt-1">Post</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">chat_bubble_outline</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Inbox</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">person_outline</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Me</span>
+</button>
+</nav>
+</main>
+</body></html>
