@@ -45,3 +45,7 @@ ROADMAPPING.md
 auto-commit.sh
 .auto-commit.log
 .auto-commit-error.log
+
+# virtual environment
+.venv/
+venv/
